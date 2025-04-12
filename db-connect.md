@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/edeae21e-132e-4ab1-af57-2ee9eb1f4649)# Spring Framework에서 MariaDB 연결 설정
+# Spring Framework에서 MariaDB 연결 설정
 
 ## 1. **MariaDB 설치 및 데이터베이스 생성**
 
