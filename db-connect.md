@@ -28,7 +28,7 @@
 ## 2. **Spring 프로젝트 내 에서 구성 파일 작성**
 
 일단 전체 파일 구조는 아래와 같다.</br>
-
+```
 hospital-backend/
 └── src/
     └── main/
@@ -46,7 +46,7 @@ hospital-backend/
                 ├── web.xml
                 ├── root-context.xml
                 └── servlet-context.xml
-
+```
 
    
    
