@@ -236,7 +236,7 @@ Spring의 경우 @Transactional 어노테이션을 사용해 트랜잭션을 관
    커넥션 풀 사용시</br>
    ![image](https://github.com/user-attachments/assets/bb5f8596-8298-465f-ab23-3edee5abeef2)
 
-   위 사진과 같이 과정이 확 주는걸 확인할 수 있다.
+   위 사진과 같이 과정이 확 줄어드는걸 확인할 수 있다.
    </br>
 3. 코드 비교</br>
 
