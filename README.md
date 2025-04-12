@@ -15,7 +15,7 @@
 - [x] Eclipse IDE 2025-03 버전 설치
 - [x] Spring Framework 6 설치
 - [x] Tomcat 10.1 설정
-- [x] MariaDB 서버 설치 및 DB 생성
+- [x] MariaDB (10.11.11) 서버 설치 및 DB 생성
 
 ---
 
