@@ -219,7 +219,65 @@ SQL 쿼리 실행
 Spring의 경우 @Transactional 어노테이션을 사용해 트랜잭션을 관리할 수 있습니다.
 
 ```
+설명은 이렇게 길지만 간단히 설명하자면 데이터베이스와 상호작용을 해주고 CRUD작업도 담당하며 Model 객체로 데이터를 반환해서 Service와 Controller에서 사용할 수 있도록 돕는 기능이라 보면 된다
 
+</br>
+
+## 3. **커넥션 풀이 뭔가?**
+
+1. 커넥션 풀의 기능</br>
+   커넥션 풀은 데이터베이스 연결을 효율적으로 관리하여 성능을 향상시키고, 자원을 절약하는 중요한 기술입니다.</br> 커넥션 풀을 사용하면 매번 연결을 만들고 끊는 비용을 줄일 수 있고, 데이터베이스와의 연결을 효율적으로 관리하여 애플리케이션의 성능을 극대화할 수 있습니다.
+   </br>
+
+   설명은 이렇게 길지만 우리가 쓰는 목적으론 속도 향상 때문에 쓰는거다.</br>
+2. 커넥션 풀을 쓰는 이유는 뭐냐?</br>
+   기존 방법</br>
+   ![image](https://github.com/user-attachments/assets/c5aa88bf-4f0f-4d29-9e81-11c19c1f5bbd)
+   커넥션 풀 사용시</br>
+   ![image](https://github.com/user-attachments/assets/bb5f8596-8298-465f-ab23-3edee5abeef2)
+
+   위 사진과 같이 과정이 확 주는걸 확인할 수 있다.
+   </br>
+3. 코드 비교</br>
+
+   커넥션 풀 미사용시 코드
+   ```
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/your_database"/>
+    <property name="username" value="root"/>
+    <property name="password" value="password"/>
+   </bean>
+   ```
+   커넥션 풀 사용시 코드
+   ```
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/your_database"/>
+    <property name="username" value="root"/>
+    <property name="password" value="password"/>
+    <property name="maximumPoolSize" value="10"/>  <!-- 최대 커넥션 풀 크기 설정 -->
+    <property name="minimumIdle" value="5"/>      <!-- 최소 유휴 커넥션 개수 설정 -->
+    <property name="connectionTimeout" value="30000"/> <!-- 커넥션 타임아웃 설정 -->
+   </bean>
+   ```
+   보기엔 큰 차이가 없으나 사용시는 최소, 최대 지정이 가능하다 그리고 연결된 커넥션을 자동으로 관리해서 불필요한 연결을 제외할 수 있다.
+
+4. 마무리 정리</br>
+   1대1 비교는 아래와 같다.</br>
+
+   | 특성               | 커넥션 풀 없이 `DriverManagerDataSource` 사용 | `HikariCP` 커넥션 풀 사용 |
+|------------------|--------------------------------------------|--------------------------|
+| **성능**          | 낮음 (매번 새로운 연결을 생성하고 종료하므로 성능 저하 발생) | 높음 (커넥션을 풀에서 재사용하여 성능 향상) |
+| **자원 관리**      | 비효율적 (매번 새로운 커넥션을 생성하고 종료) | 효율적 (커넥션 풀을 사용하여 자원을 재사용) |
+| **설정의 복잡성**   | 간단 (설정이 최소화됨)                     | 복잡 (커넥션 풀 크기, 타임아웃, 유휴 커넥션 설정 등 추가 설정 필요) |
+| **자원 낭비 및 누수** | 높은 자원 낭비 가능, 커넥션 누수 위험 존재    | 자원 관리가 자동으로 이루어져 누수 위험 감소 |
+| **트래픽 처리**    | 높은 트래픽 처리에 적합하지 않음            | 높은 트래픽 처리에 적합 (커넥션 풀로 빠르게 커넥션 할당 가능) |
+| **유연성**         | 낮음 (커넥션 수가 제한적)                   | 높음 (최대/최소 커넥션 수, 커넥션 타임아웃 등 다양한 설정 가능) |
+| **에러 발생 시 처리** | 예외가 발생할 확률이 높음                  | 커넥션 풀을 통해 안정적인 연결 유지 |
+| **초기화 시간**    | 커넥션을 매번 새로 열고 닫기 때문에 시간이 더 걸림 | 초기화 시 커넥션 풀을 준비하지만, 후속 요청에선 더 빠름 |
+| **커넥션 관리**    | 수동으로 관리해야 하며, 커넥션 누수가 발생할 위험이 있음 | 자동으로 관리되며, 커넥션 누수 방지 기능이 있음 |
+   
    
    
 
