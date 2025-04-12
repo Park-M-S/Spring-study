@@ -1,4 +1,4 @@
-# Spring Framework에서 MariaDB 연결 설정
+![image](https://github.com/user-attachments/assets/edeae21e-132e-4ab1-af57-2ee9eb1f4649)# Spring Framework에서 MariaDB 연결 설정
 
 ## 1. **MariaDB 설치 및 데이터베이스 생성**
 
@@ -16,6 +16,18 @@
   
    </br>
    해당 내용만 보고 적용하기 어려울수 있으니 이미지 자료도 추가.
+   </br>
+
+   설치 과정 1 </br>
+   ![image](https://github.com/user-attachments/assets/f5979b69-ea46-4b8d-badd-5dc9554f761d)
+   </br>
+   설치 과정 2 </br>
+   ![image](https://github.com/user-attachments/assets/ea92ded2-b560-4ee0-8b0e-7426d7fc86f2)
+   </br>
+   
+
+   
+   
 
    
 
