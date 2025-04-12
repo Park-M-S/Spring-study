@@ -10,11 +10,11 @@
 ---
 
 ## 1단계: 개발 환경 설정
-- [ ] JDK 21 설치
-- [ ] Maven 프로젝트 생성 (WAR)
-- [ ] Spring Framework 6 설치
-- [ ] Tomcat 10.1 설정
-- [ ] MariaDB 서버 설치 및 DB 생성
+- [✅] JDK 21 설치
+- [✅] Maven 프로젝트 생성 (WAR)
+- [✅] Spring Framework 6 설치
+- [✅] Tomcat 10.1 설정
+- [✅] MariaDB 서버 설치 및 DB 생성
 
 ---
 
