@@ -10,23 +10,22 @@
 ---
 
 ## 1단계: 개발 환경 설정
-- [ ] Java 17 설치
+- [ ] JDK 21 설치
 - [ ] Maven 프로젝트 생성 (WAR)
 - [ ] Spring Framework 6 설치
-- [ ] Tomcat 10 설정
-- [ ] MySQL 서버 설치 및 DB 생성
+- [ ] Tomcat 10.1 설정
+- [ ] MariaDB 서버 설치 및 DB 생성
 
 ---
 
 ## 2단계: 기본 프로젝트 구조 구성
 - [ ] 패키지 구조 설정 (Controller, Service, DAO, Model, Config)
-- [ ] Java 기반 설정 클래스(WebConfig, AppInitializer) 작성
-- [ ] JSP 기반 View 연결 설정 (InternalResourceViewResolver)
+- [ ] Framework 구성 xml (web.xml, root-context.xml, servlet-context.xml 등) 작성
 
 ---
 
 ## 3단계: 데이터베이스 연동
-- [ ] MySQL 테이블 생성 (`hospitals`, `users` 등)
+- [ ] MariaDB 테이블 sql문으로 삽입 (`hospital_main`, `hospital_detail` 등)
 - [ ] HikariCP로 커넥션 풀 설정
 - [ ] JdbcTemplate 설정 및 DAO 구현
 - [ ] 병원 정보 샘플 데이터 삽입
