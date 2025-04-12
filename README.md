@@ -10,25 +10,24 @@
 ---
 
 ## 1단계: 개발 환경 설정
-- [✅] JDK 21 설치
-- [✅] Maven 프로젝트 생성 (WAR)
-- [✅] Spring Framework 6 설치
-- [✅] Tomcat 10.1 설정
-- [✅] MariaDB 서버 설치 및 DB 생성
+- [x] JDK 21 설치
+- [x] Maven 프로젝트 생성 (WAR)
+- [x] Spring Framework 6 설치
+- [x] Tomcat 10.1 설정
+- [x] MariaDB 서버 설치 및 DB 생성
 
 ---
 
 ## 2단계: 기본 프로젝트 구조 구성
 - [ ] 패키지 구조 설정 (Controller, Service, DAO, Model, Config)
-- [ ] Framework 구성 xml (web.xml, root-context.xml, servlet-context.xml 등) 작성
+- [x] Framework 구성 xml (web.xml, root-context.xml, servlet-context.xml 등) 작성
 
 ---
 
 ## 3단계: 데이터베이스 연동
-- [ ] MariaDB 테이블 sql문으로 삽입 (`hospital_main`, `hospital_detail` 등)
-- [ ] HikariCP로 커넥션 풀 설정
-- [ ] JdbcTemplate 설정 및 DAO 구현
-- [ ] 병원 정보 샘플 데이터 삽입
+- [x] MariaDB 테이블 sql문으로 삽입 (`hospital_main`, `hospital_detail` 등)
+- [x] HikariCP로 커넥션 풀 설정
+- [x] JdbcTemplate 설정 및 DAO 구현
 
 ---
 
@@ -63,6 +62,6 @@
 ---
 
 ## 📝 부록
-- [ ] Geolocation API 예제
-- [ ] 카카오 지도 마커 예제
-- [ ] 거리 계산 SQL 예제
+- [x] Geolocation API 예제
+- [x] 카카오 지도 마커 예제
+- [x] 거리 계산 SQL 예제
