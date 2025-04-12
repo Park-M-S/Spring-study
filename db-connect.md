@@ -6,6 +6,7 @@
    [설치 링크](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.11.11&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
   </br>
 2. 설치 후 세팅은 아래와 같이 설정한다</br>
+   
    | 항목 | 값 |
    |-------|-------|
    | 사용자 | root |
