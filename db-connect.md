@@ -4,7 +4,7 @@
 
 1. MariaDB 10.11.11 버전을 설치한다</br>
    [설치 링크](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.11.11&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
-  </br>
+     </br>
 2. 설치 후 세팅은 아래와 같이 설정한다</br>
    </br>
    
