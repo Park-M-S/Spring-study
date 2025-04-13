@@ -364,7 +364,7 @@ Spring의 경우 @Transactional 어노테이션을 사용해 트랜잭션을 관
 
    **⚙️ Spring Framework에서의 CORS 설정 방법**
 
-   **글로벌 CORS 설정 코드드**
+   **글로벌 CORS 설정 코드**
 
    ```
    @Configuration
