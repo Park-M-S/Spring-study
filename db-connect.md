@@ -325,6 +325,59 @@ Spring의 경우 @Transactional 어노테이션을 사용해 트랜잭션을 관
       > 💡 참고:  
       > 간단한 프로젝트에서는 `Service`를 생략하고 `Controller ↔ DAO` 구조로도 사용됩니다.  
       > 실무에서는 유지보수를 위해 **3계층 구조(MVC + DAO)**를 권장합니다.
+</br>
+## 4. **CORS란?**
+
+   **CORS**는 **Cross-Origin Resource Sharing**의 약자로,  
+   브라우저에서 **다른 출처(Origin)**의 리소스에 접근할 수 있도록 허용해주는 **보안 정책**입니다.
+
+   웹 애플리케이션이 **자신이 로드된 출처(도메인, 프로토콜, 포트)**와 다른 출처의 자원에 요청을 보낼 때,  
+   브라우저는 보안상 이를 제한합니다. 이때 **CORS 설정**을 통해 요청을 허용할 수 있습니다.
+
+   ---
+
+   **📍 출처(Origin)의 구성 요소**
+
+   출처(Origin)는 아래 세 가지가 모두 동일해야 합니다:
+
+   - **프로토콜 (http, https)**
+   - **도메인 (예: example.com)**
+   - **포트 (예: :8080, :3000)**
+
+   예를 들어:
+
+   | 출처 A                      | 출처 B                      | 같은 출처? |
+   |----------------------------|-----------------------------|------------|
+   | http://localhost:8080      | http://localhost:8080       | ✅ 예       |
+   | http://localhost:8080      | http://localhost:3000       | ❌ 아니오   |
+   | https://example.com        | http://example.com          | ❌ 아니오   |
+
+   ---
+
+   **🔒 왜 CORS가 필요할까?**
+
+   브라우저는 **보안상의 이유**로 다른 출처에서의 API 요청을 기본적으로 차단합니다.  
+   하지만 **프론트엔드(Vue 등)**와 **백엔드(Spring 등)**가 서로 다른 서버에서 동작할 경우,  
+   서로 통신을 하기 위해 반드시 CORS 허용 설정이 필요합니다.
+
+   ---
+
+   **⚙️ Spring Framework에서의 CORS 설정 방법**
+
+   **글로벌 CORS 설정 코드드**
+
+   ```
+   @Configuration
+   public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("*");
+       }
+   }
+   ```
+
 
 
    
