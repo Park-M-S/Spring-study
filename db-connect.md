@@ -280,6 +280,52 @@ Spring의 경우 @Transactional 어노테이션을 사용해 트랜잭션을 관
 | **커넥션 관리**    | 수동으로 관리해야 하며, 커넥션 누수가 발생할 위험이 있음 | 자동으로 관리되며, 커넥션 누수 방지 기능이 있음 |
 
 ## 4. **CRUD에 대해서**
+   1. CRUD의 정의</br>
+      말 그대로 Create, Read, Update, Delete의 첫 글자들을 따서 CRUD라고 하는거다.</br>
+   2. CRUD는 어디서 담당하는가?</br>
+
+      CRUD(Create, Read, Update, Delete) 기능은 주로 MVC 아키텍처의 다음 세 계층에서 분산되어 처리됩니다:
+
+      - **Controller**
+      - **Service**
+      - **DAO (Data Access Object)**
+
+      각 계층의 역할과 CRUD 관련 책임은 아래 표와 같습니다:
+
+      **🔧 계층별 역할**
+
+      | 계층         | 주요 역할                                         | CRUD 관련 처리                                      |
+      |--------------|--------------------------------------------------|-----------------------------------------------------|
+      | **Controller** | 사용자의 요청을 받고 응답을 전달                    | 어떤 CRUD 동작을 수행할지 결정 (예: 조회 요청이면 `service.read()`) |
+      | **Service**     | 비즈니스 로직 담당 (중간 처리, 트랜잭션 등)           | CRUD 동작 전/후의 로직 처리 (필요 시 데이터 가공 등)           |
+      | **DAO**         | 데이터베이스와 직접 통신 (SQL 실행)               | 실제 **CRUD SQL 실행** 위치                                 |
+
+      ---
+
+      **🔁 예시 흐름 (병원 정보 조회 - Read)**
+
+      1. 사용자: "근처 병원 조회" 요청
+      2. Controller: `hospitalController.getNearbyHospitals()` 호출
+      3. Service: `hospitalService.findNearby()` 호출
+      4. DAO: `hospitalDao.findNearby(double x, double y)` → `SELECT` SQL 실행
+      5. DB 결과가 사용자에게 응답됨
+
+      ---
+
+      **🧠 요약 표**
+
+      | CRUD 역할        | 담당 위치               |
+      |------------------|------------------------|
+      | 요청 처리/라우팅  | Controller             |
+      | 비즈니스 로직     | Service (선택적)        |
+      | DB와의 직접 작업 | **DAO (CRUD 핵심 위치)** |
+
+      ---
+
+      > 💡 참고:  
+      > 간단한 프로젝트에서는 `Service`를 생략하고 `Controller ↔ DAO` 구조로도 사용됩니다.  
+      > 실무에서는 유지보수를 위해 **3계층 구조(MVC + DAO)**를 권장합니다.
+
 
    
    
