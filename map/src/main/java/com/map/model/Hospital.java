@@ -10,7 +10,9 @@ public class Hospital {
     private double distance; // 사용자의 현재 위치와의 거리 (km)
 
     // 기본 생성자
-    public Hospital() {}
+    public Hospital() {
+        this.distance = 0.0; // 기본 거리값 설정
+    }
 
     // Getters & Setters
     public int getId() {
@@ -67,5 +69,10 @@ public class Hospital {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    @Override
+    public String toString() {
+        return "Hospital{id=" + id + ", name='" + name + "', address='" + address + "', phone='" + phone + "', latitude=" + latitude + ", longitude=" + longitude + ", distance=" + distance + "}";
     }
 }

@@ -18,17 +18,19 @@ public class HospitalDao {
 
     public List<Hospital> findAll() {
         String sql = "SELECT " +
-                "주소 AS address, " +
-                "`좌표(X)` AS latitude, " +
-                "`좌표(Y)` AS longitude, " +
-                "전화번호 AS phone " +
-                "FROM hospital_info";
+                "hospital_name AS name, " +  // 병원 이름 추가
+                "hospital_address AS address, " +
+                "coordinate_x AS latitude, " +
+                "coordinate_y AS longitude, " +
+                "hospital_tel AS phone " +
+                "FROM hospital_main";
 
         return jdbcTemplate.query(sql, hospitalRowMapper);
     }
 
     private final RowMapper<Hospital> hospitalRowMapper = (rs, rowNum) -> {
         Hospital hospital = new Hospital();
+        hospital.setName(rs.getString("name"));  // 병원 이름 설정
         hospital.setAddress(rs.getString("address"));
         hospital.setLatitude(rs.getDouble("latitude"));
         hospital.setLongitude(rs.getDouble("longitude"));
