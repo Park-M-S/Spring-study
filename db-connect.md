@@ -25,6 +25,8 @@
    ![image](https://github.com/user-attachments/assets/ea92ded2-b560-4ee0-8b0e-7426d7fc86f2)
    </br>
 
+[기초 데이터 베이스 sql](https://github.com/0dlgmlwo0/Project_hospital/tree/master/Database/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/Database%EC%B5%9C%EC%A2%85)
+
 ## 2. **Spring 프로젝트 내 에서 구성 파일 작성**
 
 일단 전체 파일 구조는 아래와 같다.</br>
