@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `hospital_detail` (
   `fri_end` int(11) DEFAULT NULL,
   KEY `idx_hospital_code` (`hospital_code`),
   CONSTRAINT `fk_hospital_detail_hospital_code` FOREIGN KEY (`hospital_code`) REFERENCES `hospital_main` (`hospital_code`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB ROW_FORMAT=DYNAMIC DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- 테이블 데이터 hospital_db.hospital_detail:~1,883 rows (대략적) 내보내기
 INSERT INTO `hospital_detail` (`hospital_code`, `parking_capacity`, `emergency_service`, `weekday_lunch`, `weekday_reception`, `saturday_reception`, `night_emergency_available`, `mon_open`, `tues_open`, `wed_open`, `thurs_open`, `fri_open`, `mon_end`, `tues_end`, `wed_end`, `thurs_end`, `fri_end`) VALUES
