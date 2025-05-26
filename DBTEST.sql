@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `hospital_detail` (
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- 테이블 데이터 hospital_db.hospital_detail:~1,883 rows (대략적) 내보내기
+DELETE FROM `hospital_detail`;
 INSERT INTO `hospital_detail` (`hospital_code`, `parking_capacity`, `emergency_service`, `weekday_lunch`, `weekday_reception`, `saturday_reception`, `night_emergency_available`, `mon_open`, `tues_open`, `wed_open`, `thurs_open`, `fri_open`, `mon_end`, `tues_end`, `wed_end`, `thurs_end`, `fri_end`) VALUES
 	('JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ1IyQxMyQzNjEwMDIjNTEjJDEjJDIjJDgz', NULL, 'N', '13시00분~14시00분', '09시00분~18시30분', '09시00분~13시30분', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	('JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ5IyQwMyQzNjEwMDIjNDEjJDEjJDgjJDgz', NULL, 'N', '13시00분~14시00분', '', '', 'N', 900, 900, 900, 1400, 900, 1830, 1830, 1830, 1830, 1830),
@@ -1948,7 +1949,8 @@ CREATE TABLE IF NOT EXISTS `hospital_main` (
   KEY `idx_hospital_code` (`hospital_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 hospital_db.hospital_main:~1,863 rows (대략적) 내보내기
+-- 테이블 데이터 hospital_db.hospital_main:~1,883 rows (대략적) 내보내기
+DELETE FROM `hospital_main`;
 INSERT INTO `hospital_main` (`hospital_code`, `hospital_name`, `province_name`, `district_name`, `hospital_address`, `hospital_tel`, `hospital_homepage`, `doctor_num`, `coordinate_x`, `coordinate_y`, `emergency_available`, `park_available`, `pro_doc`, `end_time`) VALUES
 	('JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ1IyQxMyQzNjEwMDIjNTEjJDEjJDIjJDgz', '이상일이비인후과의원', '경기', '성남수정구', '경기도 성남시 수정구 수정로 188, 2층 (신흥동)', '031-757-5611', NULL, 1, 127.1407559, 37.4433369, 'N', NULL, 1, NULL),
 	('JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ5IyQwMyQzNjEwMDIjNDEjJDEjJDgjJDgz', '김현소아청소년과의원', '경기', '성남중원구', '경기도 성남시 중원구 제일로 37, 2층 (성남동)', '031-755-4235', NULL, 1, 127.1366006, 37.4303258, 'N', NULL, 1, 1300),
@@ -3844,7 +3846,8 @@ CREATE TABLE IF NOT EXISTS `hospital_medical_subject` (
   CONSTRAINT `hospital_medical_subject_ibfk_1` FOREIGN KEY (`hospital_code`) REFERENCES `hospital_main` (`hospital_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4425 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 hospital_db.hospital_medical_subject:~4,389 rows (대략적) 내보내기
+-- 테이블 데이터 hospital_db.hospital_medical_subject:~4,424 rows (대략적) 내보내기
+DELETE FROM `hospital_medical_subject`;
 INSERT INTO `hospital_medical_subject` (`id`, `hospital_code`, `subject_name`) VALUES
 	(1, 'JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ1IyQxMyQzNjEwMDIjNTEjJDEjJDIjJDgz', '이비인후과'),
 	(2, 'JDQ4MTYyMiM1MSMkMiMkMCMkMDAkMzgxMTkxIzIxIyQxIyQ5IyQwMyQzNjEwMDIjNDEjJDEjJDgjJDgz', '소아청소년과'),
@@ -8286,6 +8289,7 @@ CREATE TABLE IF NOT EXISTS `pharmacy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- 테이블 데이터 hospital_db.pharmacy:~534 rows (대략적) 내보내기
+DELETE FROM `pharmacy`;
 INSERT INTO `pharmacy` (`pharmacy_code`, `name`, `district_name`, `Administrative units`, `mail_address`, `address`, `tel`, `Establishment Date`, `coordinate_x`, `coordinate_y`) VALUES
 	('JDU4MTI3MSM1MSMkMSMkMCMkMDMkMzgxMzUxIzUxIyQxIyQ1IyQ2MiQyNjEwMDIjNjEjJDEjJDgjJDgz', '21세기분당종로약국', '성남분당구', '야탑동', 13497, '경기도 성남시 분당구 야탑로81번길 10, 303-1호 (야탑동, 아미고타워)', '031-622-1100', '2009-01-02', 127.1282197, 37.4105955),
 	('JDQ4MTYyMiM1MSMkMSMkMCMkMDMkNDgxMTkxIzMxIyQxIyQzIyQ5OSQyNjE4MzIjNTEjJDEjJDIjJDgz', '21세기세계로약국', '성남중원구', '금광동', 13180, '경기도 성남시 중원구 산성대로372번길 14, 1층 (금광동, 동성빌딩)', '031-743-0624', '1999-10-05', 127.1585912, 37.4447568),
