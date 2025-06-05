@@ -20,7 +20,7 @@
 ---
 
 ## 2단계: 기본 프로젝트 구조 구성
-- [ ] 패키지 구조 설정 (Controller, Service, DAO, Model, Config)
+- [x] 패키지 구조 설정 (Controller, Service, DAO, Model, Config)
 - [x] Framework 구성 xml (web.xml, root-context.xml, servlet-context.xml 등) 작성
 
 ---
